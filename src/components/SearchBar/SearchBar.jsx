@@ -1,9 +1,10 @@
 import './SearchBar.css';
 
-function SearchBar({ currentquery, updatestatus}) {
+function SearchBar({ currentquery, updatestatus, onSubmit}) {
   
   function handleSubmit(event) {
     event.preventDefault();
+    onSubmit();
   }
 
   return (

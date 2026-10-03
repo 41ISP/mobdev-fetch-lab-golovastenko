@@ -1,16 +1,24 @@
 import LikeButton from '../LikeButton/LikeButton';
 import './MovieCard.css';
 
-function MovieCard() {
+function MovieCard({ film }) {
+  const { Title, Year, Poster, Type } = film;
+
   return (
     <article className="movie-card">
-      <button type="button" className="movie-card__poster-button" aria-label="Открыть страницу фильма «Joker»">
-        <img
-          className="movie-card__poster"
-          src="https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg"
-          alt="Joker"
-        />
-        <span className="movie-card__type">Фильм</span>
+      <button type="button" className="movie-card__poster-button" aria-label={`Открыть страницу ${Type} «${Title}»`}>
+        {Poster && Poster !== 'N/A' ? (
+          <img
+            className="movie-card__poster"
+            src={Poster}
+            alt={Title}
+          />
+        ) : (
+          <div className="movie-card__poster">
+              Постер отсутствует
+          </div>
+        )}
+        <span className="movie-card__type">{Type}</span>
       </button>
 
       <div className="movie-card__like">
@@ -18,8 +26,8 @@ function MovieCard() {
       </div>
 
       <div className="movie-card__info">
-        <h3 className="movie-card__title" title="Joker">Joker</h3>
-        <p className="movie-card__year">2019</p>
+        <h3 className="movie-card__title" title={Title}>{Title}</h3>
+        <p className="movie-card__year">{Year}</p>
       </div>
     </article>
   );
