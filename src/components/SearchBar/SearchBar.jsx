@@ -18,7 +18,7 @@ function SearchBar({ currentquery, updatestatus, onSubmit}) {
           className="search-bar__input"
           placeholder="Например: Joker, Interstellar, Dune…"
         />
-        <button type="button" className="search-bar__button">Искать</button>
+        <button type="submit" className="search-bar__button">Искать</button>
       </div>
     </form>
   );
